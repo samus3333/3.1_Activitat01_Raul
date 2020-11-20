@@ -1,35 +1,26 @@
 <?php
 session_start();
 
-if(isset($_SESSION["email"]) && $_SESSION["email"] === true){
-  header("location: welcome.php");
-  exit;
+if(isset($_SESSION['id'])&& $_SESSION['id'] === true){
+    header('Location: welcome.php');
 }
-
 require_once "db.php";
 
-$email = "";
-$password = "";
-/*$user_err = "";
-$passwd_err = "";
+if(isset($_POST['login'])){
 
-  if(empty($_POST["email"])){
-    $username_err = "Please enter username.";
-  }else{
-    $user = $_POST["email"];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $sql = "SELECT * FROM users WHERE email='$email'";
+  $final= $conn->query($sql);
+
+  if(count($final)>0){
+    session_start();
+    $_SESSION['id']=true;
+    header('Location: welcome.php');
+  }else {
+    echo "Lo sentimos, tus credenciales no funcionan.";
   }
-  if(empty($_POST["password"])){
-    $password_err = "Please enter your password.";
-  }else{
-    $password = $_POST["password"];
-  }
-*/
-  if(isset($_POST['login'])){
-    $email=$_POST["email"];
-    $password=$_POST["password"];
-    $info = "SELECT * FROM users WHERE email =:email";
-    $ejecutar_info= mysqli_query($conn, $info);
-  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

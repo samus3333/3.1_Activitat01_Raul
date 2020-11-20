@@ -1,13 +1,12 @@
 <?php
-$host= "localhost";
-$user="root";
-$pass="";
-$db="act1";
 
-$conn = mysqli_connect($host, $user, $pass, $db);
+require_once "db.php";
 
-if($conn === false){
-  die("ERROR: Could not connect. " . mysqli_connect_error());
+if(isset($_POST['registrarse'])){
+  $email=$_POST["email"];
+  $password=$_POST["password"];
+  $registro = "INSERT INTO users VALUES('$email','$password')";
+  $ejecutar_registro= mysqli_query($conn, $registro);
 }
 ?>
 <html lang="en" dir="ltr">
@@ -26,12 +25,3 @@ if($conn === false){
 </form>
   </body>
 </html>
-<?php
-  if(isset($POST['registrarse'])){
-    $email=$_POST["email"];
-    $password=$_POST["password"];
-
-    $registro = "INSERT INTO users VALUES('$email','$password')";
-    $ejecutar_registro= mysqli_query($conn, $registro);
-  }
-?>

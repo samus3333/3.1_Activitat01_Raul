@@ -4,7 +4,7 @@ session_start();
 if(isset($_SESSION['id'])&& $_SESSION['id'] === true){
     header('Location: welcome.php');
 }
-require_once "db.php";
+require_once "database.php";
 
 if(isset($_POST['login'])){
 

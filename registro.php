@@ -1,6 +1,6 @@
 <?php
 
-require_once "db.php";
+require_once "database.php";
 
 if (!empty($_POST['email']) && !empty($_POST['password'])){
   if(isset($_POST['registrarse'])){

@@ -10,7 +10,7 @@ if(isset($_POST['login'])){
 
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $sql = "SELECT * FROM users WHERE email='$email'";
+  $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
   $final= $conn->query($sql);
 
   if(count($final)>0){
@@ -25,14 +25,15 @@ if(isset($_POST['login'])){
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <LINK REL=StyleSheet HREF="estilo.css" TYPE="text/css">
+    <LINK REL=StyleSheet HREF="estilo.css" TYPE="text/css" MEDIA=screen>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
     <div class="body"></div>
+    <div class="grad"></div>
     <div class="header">
-    <div ><a href="registro.php">SIGNUP </a><span class="login_registro">LOGIN</span></div>
+    <div>Site<span>Random</span></div>
     </div>
     <br>
     <div class="login">

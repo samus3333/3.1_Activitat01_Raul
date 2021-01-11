@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 
 if(isset($_SESSION['id'])&& $_SESSION['id'] === true){
@@ -10,10 +11,10 @@ if(isset($_POST['login'])){
 
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $sql = "SELECT * FROM users WHERE email='$email'";
-  $final= $conn->query($sql);
-
-  if(count($final)>0){
+  if(!empty($email) && !empty($password)){
+  $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+  }
+  if($final= $conn->query($sql)){
     session_start();
     $_SESSION['id']=true;
     header('Location: welcome.php');

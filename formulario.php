@@ -1,28 +1,120 @@
 <?php
-error_reporting(0);
 session_start();
-
+$var=0;
+if($var==1){
 if(isset($_SESSION['id'])&& $_SESSION['id'] === true){
     header('Location: welcome.php');
 }
 require_once "database.php";
 
-if(isset($_POST['login'])){
+if(strpos($_POST["email"],"!")){
+    echo "No poden estar caracters especials com !";
+}else {
+if(strpos($_POST["email"],"\"")){
+    echo "No poden estar caracters especials com \"";
+}else {
+if(strpos($_POST["email"],"#")){
+    echo "No poden estar caracters especials com #";
+}else {
+if(strpos($_POST["email"],"$")){
+    echo "No poden estar caracters especials com $";
+}else {
+if(strpos($_POST["email"],"%")){
+    echo "No poden estar caracters especials com %";
+}else {
+if(strpos($_POST["email"],"&")){
+    echo "No poden estar caracters especials.";
+}else {
+if(strpos($_POST["email"],"'")){
+    echo "No poden estar caracters especials com '";}
+else {
+if(strpos($_POST["email"],"(")){
+    echo "No poden estar caracters especials com (";
+}else {
+if(strpos($_POST["email"],")")){
+echo "No poden estar caracters especials com )";
+}else {
+if(strpos($_POST["email"],"*")){
+echo "No poden estar caracters especials com *";
+}else {
+if(strpos($_POST["email"],"+")){
+echo "No poden estar caracters especials com +";
+}else {
+if(strpos($_POST["email"],",")){
+echo "No poden estar caracters especials com ,";
+}else {
+if(strpos($_POST["email"]," ")){
+echo "No poden estar caracters especials com un espai en blanco.";
+}else {
+if(strpos($_POST["email"],"-")){
+echo "No poden estar caracters especials com -";
+}else {
+if(strpos($_POST["email"],"/")){
+echo "No poden estar caracters especials com /";
+}else {
+if(strpos($_POST["email"],":")){
+echo "No poden estar caracters especials com :";
+}else {
+if(strpos($_POST["email"],";")){
+echo "No poden estar caracters especials com ;";
+}else {
+if(strpos($_POST["email"],"=")){
+echo "No poden estar caracters especials com =";
+}else {
+if(strpos($_POST["email"],"?")){
+echo "No poden estar caracters especials com ?";
+}else {
+if(strpos($_POST["email"],"[")){
+echo "No poden estar caracters especials com [";
+}else {
+if(strpos($_POST["email"],"\\")){
+echo "No poden estar caracters especials com \\";
+}else {
+if(strpos($_POST["email"],"]")){
+echo "No poden estar caracters especials com ]";
+}else {
+if(strpos($_POST["email"],"^")){
+echo "No poden estar caracters especials com ^";
+}else {
+if(strpos($_POST["email"],"_")){
+echo "No poden estar caracters especials com _";
+}else {
+if(strpos($_POST["email"],"`")){
+echo "No poden estar caracters especials com `";
+}else {
+if(strpos($_POST["email"],"´")){
+echo "No poden estar caracters especials com ´";
+}else {
+if(strpos($_POST["email"],"{")){
+echo "No poden estar caracters especials com {";
+}else {
+if(strpos($_POST["email"],"|")){
+echo "No poden estar caracters especials com |";
+}else {
+if(strpos($_POST["email"],"~")){
+echo "No poden estar caracters especials com }";
+}else {
+  if(isset($_POST['login'])){
 
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  if(!empty($email) && !empty($password)){
-  $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    if(!empty($email) && !empty($password)){
+    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    }
+    if($final= $conn->query($sql)){
+      session_start();
+      $_SESSION['id']=true;
+      header('Location: welcome.php');
+    }else {
+      echo "Lo sentimos, tus credenciales no funcionan.";
+    }
   }
-  if($final= $conn->query($sql)){
-    session_start();
-    $_SESSION['id']=true;
-    header('Location: welcome.php');
-  }else {
-    echo "Lo sentimos, tus credenciales no funcionan.";
-  }
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 ?>
+<?php
+$var=1
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

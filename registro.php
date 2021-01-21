@@ -1,15 +1,100 @@
 <?php
-
 require_once "database.php";
-
 if (!empty($_POST['email']) && !empty($_POST['password'])){
-  if(isset($_POST['registrarse'])){
-  $email=$_POST["email"];
-  $password=$_POST["password"];
-  $registro = "INSERT INTO users VALUES('$email','$password')";
-  $ejecutar_registro= mysqli_query($conn, $registro);
-}
-}
+
+if(strpos($_POST["email"],"!")){
+    echo "No poden estar caracters especials com !";
+}else {
+if(strpos($_POST["email"],"\"")){
+    echo "No poden estar caracters especials com \"";
+}else {
+if(strpos($_POST["email"],"#")){
+    echo "No poden estar caracters especials com #";
+}else {
+if(strpos($_POST["email"],"$")){
+    echo "No poden estar caracters especials com $";
+}else {
+if(strpos($_POST["email"],"%")){
+    echo "No poden estar caracters especials com %";
+}else {
+if(strpos($_POST["email"],"&")){
+    echo "No poden estar caracters especials.";
+}else {
+if(strpos($_POST["email"],"'")){
+    echo "No poden estar caracters especials com '";}
+else {
+if(strpos($_POST["email"],"(")){
+    echo "No poden estar caracters especials com (";
+}else {
+if(strpos($_POST["email"],")")){
+echo "No poden estar caracters especials com )";
+}else {
+if(strpos($_POST["email"],"*")){
+echo "No poden estar caracters especials com *";
+}else {
+if(strpos($_POST["email"],"+")){
+echo "No poden estar caracters especials com +";
+}else {
+if(strpos($_POST["email"],",")){
+echo "No poden estar caracters especials com ,";
+}else {
+if(strpos($_POST["email"]," ")){
+echo "No poden estar caracters especials com un espai en blanco.";
+}else {
+if(strpos($_POST["email"],"-")){
+echo "No poden estar caracters especials com -";
+}else {
+if(strpos($_POST["email"],"/")){
+echo "No poden estar caracters especials com /";
+}else {
+if(strpos($_POST["email"],":")){
+echo "No poden estar caracters especials com :";
+}else {
+if(strpos($_POST["email"],";")){
+echo "No poden estar caracters especials com ;";
+}else {
+if(strpos($_POST["email"],"=")){
+echo "No poden estar caracters especials com =";
+}else {
+if(strpos($_POST["email"],"?")){
+echo "No poden estar caracters especials com ?";
+}else {
+if(strpos($_POST["email"],"[")){
+echo "No poden estar caracters especials com [";
+}else {
+if(strpos($_POST["email"],"\\")){
+echo "No poden estar caracters especials com \\";
+}else {
+if(strpos($_POST["email"],"]")){
+echo "No poden estar caracters especials com ]";
+}else {
+if(strpos($_POST["email"],"^")){
+echo "No poden estar caracters especials com ^";
+}else {
+if(strpos($_POST["email"],"_")){
+echo "No poden estar caracters especials com _";
+}else {
+if(strpos($_POST["email"],"`")){
+echo "No poden estar caracters especials com `";
+}else {
+if(strpos($_POST["email"],"´")){
+echo "No poden estar caracters especials com ´";
+}else {
+if(strpos($_POST["email"],"{")){
+echo "No poden estar caracters especials com {";
+}else {
+if(strpos($_POST["email"],"|")){
+echo "No poden estar caracters especials com |";
+}else {
+if(strpos($_POST["email"],"~")){
+echo "No poden estar caracters especials com }";
+}else {
+if(isset($_POST['registrarse'])){
+$email=$_POST["email"];
+$password=$_POST["password"];
+$registro = "INSERT INTO users VALUES('$email','$password')";
+$ejecutar_registro= mysqli_query($conn, $registro);
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 ?>
 <html lang="en" dir="ltr">
   <head>
